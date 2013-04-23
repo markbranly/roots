@@ -1,0 +1,144 @@
+@import url(variables.less);
+@import url(mixins.less);
+
+@page-bg: @graylight;
+
+
+@logo-url: url(../img/logo.svg);
+@logo-width: 300px;
+@logo-height: 75px;
+
+@form-bg: @gray;
+@form-border: none;
+@field-bg: #fff;
+@field-border: @grayDarker;
+@field-text-color: @grayDarker;
+
+@button-color: @blue;
+@link-color: @blue;
+@text-color: @grayDarker;
+
+@error-bg: lighten(@red, 40%);
+@error-text-color: @gray;
+@error-border: solid 1px @red;
+@error-link-color: inherit;
+
+
+
+
+body.login{
+    background: @page-bg;
+
+    #login{
+        padding-top: 32px;
+    }
+
+    // brand
+    h1 a{
+        background-image: @logo-url;
+        background-size: auto;
+        margin: 0 auto;
+        width: @logo-width;
+        height: @logo-height;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    // error messages
+    #login_error{
+        background: @error-bg;
+        border: @error-border;
+        color: @error-text-color;
+
+        a{
+            color: @error-link-color;
+            font-weight: bold;
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+
+    // the form itself
+    #loginform{
+        background: @form-bg;
+        border: @form-border;
+        .box-shadow(none);
+
+        label{
+            color: @text-color;
+            font-family: @sansFontFamily;
+            font-size: 1rem;
+            font-weight: 200;
+            letter-spacing: 0;
+            padding-bottom: 0.2em;
+        }
+
+        .forgetmenot label{
+            font-size: 0.8rem !important;
+            font-weight: 200 !important;
+            padding-bottom: 0;
+        }
+
+        // fields
+        input[type="text"],
+        input[type="password"]{
+            background: @field-bg;
+            border: @field-border;
+            color:@field-text-color;
+
+            &:focus{
+                border-color: @button-color;
+            }
+        }
+        // button
+        input.button-primary{
+            background: @button-color;
+            border: solid 1px darken(@button-color, 10%);
+            border-radius: 3px;
+            text-shadow: none;
+
+            -webkit-box-shadow: none;
+                    box-shadow: none;
+
+            &:hover{
+                background: lighten(@button-color, 10%);
+                border-color: @button-color;
+                color: #fff;
+
+                text-shadow: none;
+
+                -webkit-box-shadow: none;
+                        box-shadow: none;
+            }
+        }
+    }
+    // Lost Password link, Login link, etc.
+    #nav{
+        a{
+            color: @link-color !important;
+            text-decoration: none;
+            text-shadow: none;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    // back to blog link
+    #backtoblog{
+        display: none;
+
+        a{
+            color: @link-color !important;
+
+            &:hover{
+                color: @link-color !important;
+                text-decoration: underline;
+            }
+        }
+    }
+}

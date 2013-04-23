@@ -24,6 +24,22 @@ function roots_setup() {
 }
 add_action('after_setup_theme', 'roots_setup');
 
+
+// add login css
+function roots_login_head(){
+    wp_enqueue_style('login', get_stylesheet_directory_uri().'/assets/css/login.css');
+}
+add_action('login_head','roots_login_head');
+
+// redirect login logo url
+function roots_login_headurl( $url ) {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'roots_login_headurl' );
+
+
+
+
 // Backwards compatibility for older than PHP 5.3.0
 if (!defined('__DIR__')) { define('__DIR__', dirname(__FILE__)); }
 
